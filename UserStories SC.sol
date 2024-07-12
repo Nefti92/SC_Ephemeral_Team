@@ -172,14 +172,11 @@ contract UserStories {
         return(usAddress);       
     }
 
-    function addUS(uint [][] memory _idSkill, uint[] memory _effort, uint[] memory _payment) public OnlyOwner returns(uint) {
-        uint newDimUSList = _idSkill[0].length;
-        for(uint i = dimUSList; i < newDimUSList; i++) {
-            US[i].idSkills = _idSkill[i];
-            US[i].effort = _effort[i];
-            US[i].payment = _payment[i];
-        }
-        dimUSList = newDimUSList;
+    function addUS(uint memory _idSkill, uint memory _effort, uint memory _payment) public OnlyOwner returns(uint) {
+        US[dimUSList].idSkills = _idSkill;
+        US[dimUSList].effort = _effort;
+        US[dimUSList].payment = _payment;
+        dimUSList++;
         return(dimUSList);
     }
 
